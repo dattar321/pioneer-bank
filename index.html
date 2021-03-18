@@ -89,7 +89,9 @@
         function updateSpanText(id,depositNumber){
             let currBalance = document.getElementById(id).innerText;
             currBalance = parseFloat(currBalance);
-            document.getElementById(id).innerText = currBalance+depositNumber;
+            if(currBalance+depositNumber<0)
+                alert("Balance 0 can't withdraw");
+            else document.getElementById(id).innerText = currBalance+depositNumber;
         }
         
     </script>
