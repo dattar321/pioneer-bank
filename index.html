@@ -71,20 +71,16 @@
         //deposit btn event
         document.getElementById("addDeposit").addEventListener("click",()=>{
             const depositAmount = getInput("depositAmount");
-
             updateSpanText("currentDeposit",depositAmount);
             updateSpanText("currentBalance",depositAmount);
-
             document.getElementById("depositAmount").value = "";
-
         });
         //withdraw btn event
         document.getElementById("getWithdraw").addEventListener("click",()=>{
             const withdrawamount = getInput("withdrawAmount");
             updateSpanText("currenntWithdraw",withdrawamount);
-            downgradespanText("currentBalance",withdrawamount);
-            document.getElementById("depositAmount").value = "";
-
+            updateSpanText("currentBalance",-1*withdrawamount);
+            document.getElementById("withdrawAmount").value = "";
         });
         function getInput(id){
             const withdrawamount = document.getElementById(id).value;
@@ -94,11 +90,6 @@
             let currBalance = document.getElementById(id).innerText;
             currBalance = parseFloat(currBalance);
             document.getElementById(id).innerText = currBalance+depositNumber;
-        }
-        function downgradespanText(id,depositNumber){
-            let currBalance = document.getElementById(id).innerText;
-            currBalance = parseFloat(currBalance);
-            document.getElementById(id).innerText = currBalance-depositNumber;
         }
         
     </script>
